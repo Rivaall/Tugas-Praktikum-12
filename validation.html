@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        body {
+            background-color: aqua;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        input {
+            width:100%;
+            justify-items: right;
+        }
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend style="text-align: center;" ><h1>Form Validation</h1></legend>
+        <form id="form">
+            <div>
+                <label for="">Mama Pelanggan</label>
+                <input type="text" name="nama" required maxlength="30">
+            </div>
+            <br>
+            <div>
+                <label for="">Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <br>
+            <div>
+                <label for="">Jam Keberangkatan</label>
+                <input type="time" name="jam" required>
+            </div>
+            <br>
+            <div>
+                <label for="">Tujuan Keberangkatan</label>
+                <input type="text" name="tujuan" required>
+            </div>
+            <br>
+            <div>
+                <label for="">Jumlah Tiket</label>
+                <input type="number" name="tiket" min="1" max="10" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </fieldset>
+
+    <div>
+        <p>Nama Pelanggan: <span id="nama"></span></p>
+        <p>Email: <span id="email"></span></p>
+        <p>Jam Keberangkatan: <span id="jam"></span></p>
+        <p>Tujuan Keberangkatan: <span id="tujuan"></span></p>
+        <p>Jumlah Tiket: <span id="tiket"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const formData = new FormData(form)
+
+        document.getElementById('nama').innerText = formData.get('nama')
+        document.getElementById('email').innerText = formData.get('email')
+        document.getElementById('jam').innerText = formData.get('jam')
+        document.getElementById('tujuan').innerText = formData.get('tujuan')
+        document.getElementById('tiket').innerText = formData.get('tiket')
+    })
+    </script>
+    
+</body>
+</html>
